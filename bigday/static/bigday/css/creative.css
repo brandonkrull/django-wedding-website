@@ -9,10 +9,12 @@ body {
     width: 100%;
     height: 100%;
     font-size: 16px;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
-    font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
+    /* font-family: Merriweather,'Helvetica Neue',Arial,sans-serif; */
+    font-family: Roboto;
 }
 
 hr {
@@ -43,7 +45,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 p {
@@ -83,7 +85,11 @@ aside {
     padding: 0;
 }
 
+.navbar-right .nav > li > a {
+}
+
 .navbar-default {
+    color: #f3f3f1;
     border-color: rgba(34,34,34,.05);
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     background-color: #fff;
@@ -93,8 +99,6 @@ aside {
 }
 
 .navbar-default .navbar-header .navbar-brand {
-    text-transform: uppercase;
-    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     font-weight: 700;
     color: #f05f40;
 }
@@ -114,12 +118,15 @@ aside {
 
 .navbar-default .nav > li>a:hover,
 .navbar-default .nav>li>a:focus:hover {
-    color: #f05f40;
+    /* color: #218380!important; */
+    color: #fff!important;
 }
 
 .navbar-default .nav > li.active>a,
 .navbar-default .nav>li.active>a:focus {
-    color: #f05f40!important;
+    /* color: #f05f40!important; */
+    /* color: #218380!important; */
+    color: #fff!important;
     background-color: transparent;
 }
 
@@ -192,8 +199,23 @@ header {
     -o-background-size: cover;
 }
 
-#main-header {
-    background-image: url('../images/wedding-selfie-better.jpg');
+#home {
+    background-image:
+    linear-gradient(
+        rgba(0, 0, 0, 0.30),
+        rgba(0, 0, 0, 0.30)
+    ), url('../images/ocean-only.jpg');
+}
+
+@media (max-width: 768px) {
+    #home {
+        background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.30),
+            rgba(0, 0, 0, 0.30)
+        ), url('../images/ocean-only.jpg');
+        height: 100%;
+    }
 }
 
 header .header-content {
@@ -207,7 +229,6 @@ header .header-content .header-content-inner h1 {
     margin-top: 0;
     margin-bottom: 0;
     text-transform: uppercase;
-    font-weight: 700;
     color: #fff;
 }
 
