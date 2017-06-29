@@ -1,36 +1,34 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block page_head %}
-    <!-- Custom CSS -->
-    <link href="{% static 'bigday/css/creative.css' %}" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="{% static 'bigday/css/creative.css' %}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 {% endblock %}
 {% block page_content %}
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Cory and Rowena's Big Day</a>
+                <a class="navbar-brand page-scroll" href="#top">A&B</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#main-header">Home</a>
+                        <a class="page-scroll" href="#event">Celebrate</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#event">Event</a>
+                        <a class="page-scroll" href="#venue">The Colony House</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#niagara">Niagara-on-the-Lake</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#other-stuff">Everything Else</a>
+                        <a class="page-scroll" href="#other-stuff">Other Info</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -42,18 +40,15 @@
         <!-- /.container-fluid -->
     </nav>
     {% block main %}
-    <header id="main-header">
+    <header id="home">
         <div class="header-content">
             <div class="header-content-inner">
-                <h1>We did it!!</h1>
-                {% comment %}
-                <hr>
-                <h2>It's wedding week!</h2>
-                <a href="#welcome" class="btn btn-info btn-xl page-scroll">Welcome</a>
-                <a href="#event" class="btn btn-primary btn-xl page-scroll">Friday</a>
-                <a href="#saturday-event" class="btn btn-success btn-xl page-scroll">Saturday</a>
-                {% endcomment %}
             </div>
+        </div>
+        <div style="color: #fff; position: absolute; bottom: 0; right: 10px; text-align: right; font-weight: 200;">
+            <h2>alysa m. fukunaga</h2>
+            <h2>brandon t. krull</h2>
+            <h2>3.30.2018</h2>
         </div>
     </header>
     <section class="bg-info" id="welcome">
@@ -85,7 +80,7 @@
     <section class="no-padding" id="navigation">
         <div class="container-fluid">
             <div class="row no-gutter">
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-lg-4 col-sm-6 col-xs-12">
                     <a href="#event" class="portfolio-box page-scroll">
                         <img src="{% static 'bigday/images/ravine-nav.jpg' %}" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
@@ -97,7 +92,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-lg-4 col-sm-6 col-xs-12">
                     <a href="#niagara" class="portfolio-box page-scroll">
                         <img src="{% static 'bigday/images/prince-of-wales-hotel-nav.jpg' %}" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
@@ -109,7 +104,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-lg-4 col-sm-6 col-xs-12">
                     <a href="#story" class="portfolio-box page-scroll">
                         <img src="{% static 'bigday/images/twelve-apostles-nav.jpg' %}" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
@@ -125,19 +120,19 @@
         </div>
     </section>
     {% include 'partials/event.html' %}
-    <section id="niagara">
-        {% include 'partials/niagara.html' %}
+    <section id="venue">
+        {% include 'partials/venue.html' %}
     </section>
 {% comment %}
         {% include 'partials/wedding-party.html' %}
-{% endcomment %}
     <section id="other-stuff" class="bg-primary">
         {% include 'partials/misc.html' %}
     </section>
-    <section id="gifts">
+{% endcomment %}
+    <section id="gifts" class="bg-dark">
         {% include 'partials/gifts.html' %}
     </section>
-    <section id="story" class="bg-dark">
+    <section id="story">
         {% include 'partials/story.html' %}
     </section>
     {% include 'partials/proposal.html' %}
@@ -151,7 +146,7 @@
                     <p>If you have any questions don't hesitate to reach out!</p>
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
+                    <i class="fa fa-envelope-o fa-lg wow bounceIn" data-wow-delay=".1s"></i>
                     <p><a href="mailto:hello@coryandro.com">hello@coryandro.com</a></p>
                 </div>
             </div>
