@@ -27,6 +27,19 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#EMAIL_HOST = "smtp.gmail.com"
+#EMAIL_HOST_USER = "btkrull@gmail.com"
+#EMAIL_HOST_PASSWORD = "ysvttukeikxsjmjd"
+#EMAIL_PORT = 587
+#EMAIL_USE_TLS = True
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = "smtp.zoho.com"
+EMAIL_HOST_USER = "hi@afbk.love"
+EMAIL_HOST_PASSWORD = "fitCieX4"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = "hi@afbk.love"
 
 # Application definition
 
