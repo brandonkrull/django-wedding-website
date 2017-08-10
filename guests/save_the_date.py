@@ -10,47 +10,12 @@ from guests.models import Party
 
 SAVE_THE_DATE_TEMPLATE = 'guests/email_templates/save_the_date.html'
 SAVE_THE_DATE_CONTEXT_MAP = {
-    'lions-head': {
-        'title': "Lion's Head",
+    'default': {
+        'title': "Crescent Bay",
         'header_filename': 'hearts.png',
-        'main_image': 'lions-head.jpg',
-        'main_color': '#fff3e8',
-        'font_color': '#666666',
-    },
-    'ski-trip': {
-        'title': 'Ski Trip',
-        'header_filename': 'hearts.png',
-        'main_image': 'ski-trip.jpg',
-        'main_color': '#330033',
-        'font_color': '#ffffff',
-    },
-    'canada': {
-        'title': 'Canada!',
-        'header_filename': 'maple-leaf.png',
-        'main_image': 'canada-cartoon-resized.jpg',
-        'main_color': '#ea2e2e',
-        'font_color': '#e5ddd9',
-    },
-    'american-gothic': {
-        'title': 'American Gothic',
-        'header_filename': 'hearts.png',
-        'main_image': 'american-gothic.jpg',
-        'main_color': '#b6ccb5',
-        'font_color': '#000000',
-    },
-    'plunge': {
-        'title': 'The Plunge',
-        'header_filename': 'plunger.png',
-        'main_image': 'plunge.jpg',
-        'main_color': '#b4e6ff',
-        'font_color': '#000000',
-    },
-    'dimagi': {
-        'title': 'Dimagi',
-        'header_filename': 'commcare.png',
-        'main_image': 'join-us.jpg',
-        'main_color': '#003d71',
-        'font_color': '#d6d6d4',
+        'main_image': 'ab.jpg',
+        'main_color': '#fff',
+        'font_color': '#000',
     }
 }
 
@@ -76,24 +41,8 @@ def send_save_the_date_to_party(party, test_only=False):
 
 
 def get_template_id_from_party(party):
-    if party.type == 'formal':
-        # all formal guests get formal invites
-        return random.choice(['lions-head', 'ski-trip'])
-    elif party.type == 'dimagi':
-        # all non-formal dimagis get dimagi invites
-        return 'dimagi'
-    elif party.type == 'fun':
-        all_options = SAVE_THE_DATE_CONTEXT_MAP.keys()
-        all_options.remove('dimagi')
-        if party.category == 'ro':
-            # don't send the canada invitation to ro's crowd
-            all_options.remove('canada')
-        # otherwise choose randomly from all options for everyone else
-        return random.choice(all_options)
-    else:
-        return None
 
-
+    return 'default' 
 def get_save_the_date_context(template_id):
     template_id = (template_id or '').lower()
     if template_id not in SAVE_THE_DATE_CONTEXT_MAP:
@@ -128,7 +77,6 @@ def send_save_the_date_email(context, recipients, test_only=False):
 
     print 'sending {} to {}'.format(context['name'], ', '.join(recipients))
     if not test_only:
-        #msg = EmailMessage(subject, template_text, from_email
         msg.send()
 
 
