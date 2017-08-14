@@ -6,9 +6,8 @@
     {% with "save-the-date/images/"|add:main_image as main_static_url %}
         <img src="{% if email_mode %}cid:{{ main_image }}{% else %}{% static main_static_url %}{% endif %}"
              alt="alysa and brandon"
-             style="display: block; padding: 0; color: #666666; text-decoration: none; font-family: Helvetica, arial, sans-serif; font-size: 16px;"
-             class="img-max" border="0"
-             height="400" width="500">
+             style="display: block; padding: 0; color: #666666; text-decoration: none; font-size: 16px;"
+             class="img-max" border="0"><!-- height="400" width="500">-->
     {% endwith %}
     </a>
 {% endblock %}
@@ -16,14 +15,14 @@
     <table border="0" width="100%" cellpadding="0" cellspacing="0">
         <tbody>
         <tr>
-            <td style="font-size: 35px; font-family: Palatino, serif; color: {{ font_color }}; padding-top: 30px; font-weight:bolder;"
+            <td style="font-size: 35px; color: {{ font_color }}; padding-top: 30px; font-weight:bolder;"
                 class="padding-copy"
                 align="center">
                 March 30th, 2018
             </td>
         </tr>
         <tr>
-            <td style="padding: 20px 0 0 0; font-size: 16px; line-height: 20px; font-family: Helvetica, Arial, sans-serif; color: {{ font_color }};"
+            <td style="padding: 20px 0 0 0; font-size: 16px; line-height: 20px; color: {{ font_color }};"
                 class="padding-copy"
                 align="center">
                 Alysa &amp; Brandon<br>

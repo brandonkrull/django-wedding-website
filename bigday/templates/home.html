@@ -5,8 +5,8 @@
 {% endblock %}
 {% block page_content %}
     {% block main %}
-            <header id="home">
-        <section section-name="home">
+        <header id="home">
+        <section data-section-name="home">
                 <div class="header-content">
                     <div class="header-content-inner">
                     </div>
@@ -17,21 +17,20 @@
                     <h2>3.30.2018</h2>
                 </div>
         </section>
-            </header>
-        {% include 'partials/event.html' %}
+        </header>
         {% include 'partials/venue.html' %}
     {% endblock %}
-    {% include 'partials/footer.html' %}
 {% endblock %}
 {% block page_js %}
     <script src="{% static 'creative/js/jquery.easing.min.js' %}"></script>
     <script src="{% static 'creative/js/jquery.fittext.js' %}"></script>
-    <script src="{% static 'creative/js/jquery.scrollify.min.js' %}"></script>
+    <script src="{% static 'creative/js/jquery.scrollify.js' %}"></script>
     <script src="{% static 'creative/js/creative.js' %}"></script>
     <script>
         $(document).ready(function(){
             $.scrollify({
                 section: "section",
+                sectionName: "section-name",
                 interstitialSection: ".footer",
             });
         });
