@@ -1,7 +1,10 @@
-/*!
- * Modified from Start Bootstrap - Creative Bootstrap Theme (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+/* COLORS
+ *
+ * deep tuscan red      #673c4f
+ * weldon blue          #7698b3
+ * dark sky blue        #83b5d1
+ * wintergreen dream    #5b7b7a
+ * medium sea green     #4cad61
  */
 
 html,
@@ -13,13 +16,15 @@ body {
 }
 
 body {
-    /* font-family: Merriweather,'Helvetica Neue',Arial,sans-serif; */
     font-family: Roboto;
 }
 
 hr {
-    max-width: 50px;
-    border-color: #f05f40;
+    max-width: 100px;
+    /* border-color: #673C4F; */
+    border-color: #7698B3;
+    /* border-color: #4CAD61; */
+    /* border-color: #f05f40;*/
     border-width: 3px;
 }
 
@@ -28,7 +33,8 @@ hr.light {
 }
 
 a {
-    color: #f05f40;
+    color: #4CAD61;
+    /* color: #f05f40; */
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -36,7 +42,10 @@ a {
 
 a:hover,
 a:focus {
-    color: #eb3812;
+    color: #673C4F;
+    color: #7698B3;
+    /* color: #673C4F; */
+    /* color: #eb3812; */
 }
 
 h1,
@@ -136,6 +145,9 @@ aside {
 }
 
 @media(min-width:768px) {
+    .break-on-small {
+        display: none;
+    }
     .navbar-default {
         border-color: rgba(28,56,81,.3);
         background-color: transparent;
