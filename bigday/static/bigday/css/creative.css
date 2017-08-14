@@ -16,7 +16,7 @@ body {
 }
 
 body {
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     webkit-tap-highlight-color: #222;
 }
 
@@ -35,7 +35,6 @@ hr.light {
 
 a {
     color: #4CAD61;
-    /* color: #f05f40; */
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -43,10 +42,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #673C4F;
     color: #7698B3;
-    /* color: #673C4F; */
-    /* color: #eb3812; */
 }
 
 h1,
@@ -541,19 +537,14 @@ img::-moz-selection {
     padding: 30px;
 }
 
-/*.scroll {
-	position:relative;
-    font-weight: 100;
-	margin-bottom:20px;
-	display:inline-block;
-	height:70px;
+.scroll {
+    margin: auto;
     top: 95%;
-    color: #fff;
+    height: 20px;
+    left: 0;
+    right: 0;
 }
-.scroll:hover {
-	text-decoration:none;
-}
-*/
+
 .scroll:after {
 	content:'';
 	width:30px;
@@ -562,6 +553,7 @@ img::-moz-selection {
 
 	margin:auto;
 	bottom:20px;
+    top: 0;
 	right:0;
 	left:0;
 	-webkit-animation:3s arrow infinite ease;
@@ -570,26 +562,27 @@ img::-moz-selection {
 }
 
 .scroll:after {
-	border-right:2px solid #FFF;
-	border-bottom:2px solid #FFF;
+	border-right:2px solid #fff;
+	border-bottom:2px solid #fff;
 	-ms-transform:rotate(45deg);
 	-webkit-transform:rotate(45deg);
 	transform:rotate(45deg);
+    box-shadow: 2px 2px 1px #999;
 }
 
 @-webkit-keyframes arrow {
 	0%,100% {
-		top:93%;
+		top:92%;
 	}
 	50% {
-		top:95%;
+		top:94%;
 	}
 }
 @keyframes arrow {
 	0%,100% {
-		top:93%;
+		top:92%;
 	}
 	50% {
-		top:95%;
+		top:94%;
 	}
 }
