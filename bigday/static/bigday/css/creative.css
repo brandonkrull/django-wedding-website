@@ -17,6 +17,7 @@ body {
 
 body {
     font-family: Roboto;
+    webkit-tap-highlight-color: #222;
 }
 
 hr {
@@ -535,12 +536,60 @@ img::-moz-selection {
     background: 0 0;
 }
 
-body {
-    webkit-tap-highlight-color: #222;
-
-}
-
 #footer {
     background-color: #fff;
     padding: 30px;
+}
+
+/*.scroll {
+	position:relative;
+    font-weight: 100;
+	margin-bottom:20px;
+	display:inline-block;
+	height:70px;
+    top: 95%;
+    color: #fff;
+}
+.scroll:hover {
+	text-decoration:none;
+}
+*/
+.scroll:after {
+	content:'';
+	width:30px;
+	height:30px;
+	position:absolute;
+
+	margin:auto;
+	bottom:20px;
+	/*right:0;*/
+	left:20px;
+	-webkit-animation:3s arrow infinite ease;
+	-moz-animation:3s arrow infinite ease;
+	animation:3s arrow infinite ease;
+}
+
+.scroll:after {
+	border-right:2px solid #FFF;
+	border-bottom:2px solid #FFF;
+	-ms-transform:rotate(45deg);
+	-webkit-transform:rotate(45deg);
+	transform:rotate(45deg);
+}
+
+@-webkit-keyframes arrow {
+	0%,100% {
+		top:10px;
+	}
+	50% {
+		top:30px;
+	}
+}
+@keyframes arrow {
+	0%,100% {
+		top:93%;
+	}
+	50% {
+		top:95%;
+	}
 }

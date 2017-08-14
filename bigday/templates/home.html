@@ -16,6 +16,7 @@
                     <h2>brandon t. krull</h2>
                     <h2>3.30.2018</h2>
                 </div>
+        <a href="#event" class="scroll"></a>
         </section>
         </header>
         {% include 'partials/venue.html' %}
@@ -33,6 +34,12 @@
                 sectionName: "section-name",
                 interstitialSection: ".footer",
             });
+        });
+    </script>
+    <script>
+        $(".scroll,.scroll-btn").click(function(e) {
+            e.preventDefault();
+            $.scrollify.next();
         });
     </script>
 {% endblock %}
