@@ -211,8 +211,8 @@ header {
 #home {
     background-image:
     linear-gradient(
-        rgba(0, 0, 0, 0.30),
-        rgba(0, 0, 0, 0.30)
+        rgba(0, 0, 0, 0.20),
+        rgba(0, 0, 0, 0.20)
     ), url('../images/ocean-only.jpg');
 }
 
@@ -530,6 +530,13 @@ img::selection {
 img::-moz-selection {
     color: #fff;
     background: 0 0;
+}
+
+img.center {
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 #footer {
