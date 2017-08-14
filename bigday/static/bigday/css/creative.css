@@ -562,8 +562,8 @@ img::-moz-selection {
 
 	margin:auto;
 	bottom:20px;
-	/*right:0;*/
-	left:20px;
+	right:0;
+	left:0;
 	-webkit-animation:3s arrow infinite ease;
 	-moz-animation:3s arrow infinite ease;
 	animation:3s arrow infinite ease;
@@ -579,10 +579,10 @@ img::-moz-selection {
 
 @-webkit-keyframes arrow {
 	0%,100% {
-		top:10px;
+		top:93%;
 	}
 	50% {
-		top:30px;
+		top:95%;
 	}
 }
 @keyframes arrow {
