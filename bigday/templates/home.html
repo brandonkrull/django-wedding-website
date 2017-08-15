@@ -16,23 +16,24 @@
                     <h2>brandon t. krull</h2>
                     <h2>3.30.2018</h2>
                 </div>
-        <a href="#" class="scroll"></a>
+        <a href="#event" class="scroll"></a>
         </section>
         </header>
         {% include 'partials/venue.html' %}
     {% endblock %}
 {% endblock %}
 {% block page_js %}
-    <script src="{% static 'creative/js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'creative/js/creative.js' %}"></script>
+    <!-- <script src="{% static 'creative/js/jquery.easing.min.js' %}"></script>
     <script src="{% static 'creative/js/jquery.fittext.js' %}"></script>
     <script src="{% static 'creative/js/jquery.scrollify.js' %}"></script>
-    <script src="{% static 'creative/js/creative.js' %}"></script>
     <script>
         $(document).ready(function(){
             $.scrollify({
                 section: "section",
                 sectionName: "section-name",
                 interstitialSection: ".footer",
+                setHeights: "false"
             });
         });
     </script>
@@ -41,5 +42,5 @@
             e.preventDefault();
             $.scrollify.next();
         });
-    </script>
+    </script> -->
 {% endblock %}
