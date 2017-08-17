@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import ConfigParser
+
+config = ConfigParser.ConfigParser()
+config.read('/home/django/wed.cfg')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,16 +31,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-#EMAIL_HOST = "smtp.gmail.com"
-#EMAIL_HOST_USER = "btkrull@gmail.com"
-#EMAIL_HOST_PASSWORD = "ysvttukeikxsjmjd"
-#EMAIL_PORT = 587
-#EMAIL_USE_TLS = True
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
 EMAIL_HOST = "smtp.zoho.com"
-EMAIL_HOST_USER = "hi@afbk.love"
-EMAIL_HOST_PASSWORD = "fitCieX4"
+EMAIL_HOST_USER = config.get('wedding', 'user')
+EMAIL_HOST_PASSWORD = config.get('wedding', 'password')
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 DEFAULT_FROM_EMAIL = "hi@afbk.love"
