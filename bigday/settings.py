@@ -14,7 +14,7 @@ import os
 import ConfigParser
 
 config = ConfigParser.ConfigParser()
-config.read('/home/django/wed.cfg')
+config.read('/Users/bkrull/Desktop/wed.cfg')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'u7!-y4k1c6b44q507nr_l+c^12o7ur++cpzyn!$65w^!gum@h%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config.get('wedding', 'debug')
 
 ALLOWED_HOSTS = []
 
