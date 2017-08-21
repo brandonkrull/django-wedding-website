@@ -14,8 +14,7 @@ import os
 import ConfigParser
 
 config = ConfigParser.ConfigParser()
-#config.read('/home/django/wed.cfg')
-config.read('/Users/bkrull/Desktop/wed.cfg')
+config.read('/home/django/wed.cfg')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
