@@ -4,43 +4,43 @@
 <link href="{% static 'bigday/css/creative.css' %}" rel="stylesheet">
 {% endblock %}
 {% block page_content %}
-    {% block main %}
-        <header id="home">
-        <section data-section-name="home">
-                <div class="header-content">
-                    <div class="header-content-inner">
-                    </div>
-                </div>
-                <div style="color: #fff; position: absolute; bottom: 0; right: 10px; text-align: right; font-weight: 200;">
-                    <h2>alysa m. fukunaga</h2>
-                    <h2>brandon t. krull</h2>
-                    <h2>3.30.2018</h2>
-                </div>
-        <a href="#event" class="scroll"></a>
-        </section>
-        </header>
-        {% include 'partials/venue.html' %}
-    {% endblock %}
+{% block main %}
+<header id="home">
+<section data-section-name="home">
+        <div class="header-content">
+            <div class="header-content-inner">
+            </div>
+        </div>
+        <div style="color: #fff; position: absolute; bottom: 0; right: 10px; text-align: right; font-weight: 200;">
+            <h2>alysa m. fukunaga</h2>
+            <h2>brandon t. krull</h2>
+            <h2>3.30.2018</h2>
+        </div>
+<a href="#event" class="scroll"></a>
+</section>
+</header>
+{% include 'partials/info.html' %}
+{% endblock %}
 {% endblock %}
 {% block page_js %}
-    <script src="{% static 'creative/js/creative.js' %}"></script>
-    <script src="{% static 'creative/js/jquery.easing.min.js' %}"></script>
-    <script src="{% static 'creative/js/jquery.fittext.js' %}"></script>
-    <script src="{% static 'creative/js/jquery.scrollify.js' %}"></script>
-    <script>
-        $(document).ready(function(){
-            $.scrollify({
-                section: "section",
-                sectionName: "section-name",
-                interstitialSection: ".footer",
-                setHeights: "false"
-            });
+<script src="{% static 'creative/js/creative.js' %}"></script>
+<script src="{% static 'creative/js/jquery.easing.min.js' %}"></script>
+<script src="{% static 'creative/js/jquery.fittext.js' %}"></script>
+<script src="{% static 'creative/js/jquery.scrollify.js' %}"></script>
+<script>
+    $(document).ready(function(){
+        $.scrollify({
+            section: "section",
+            sectionName: "section-name",
+            interstitialSection: ".footer",
+            setHeights: "false"
         });
-    </script>
-    <script>
-        $(".scroll,.scroll-btn").click(function(e) {
-            e.preventDefault();
-            $.scrollify.next();
-        });
-    </script>
+    });
+</script>
+<script>
+    $(".scroll,.scroll-btn").click(function(e) {
+        e.preventDefault();
+        $.scrollify.next();
+    });
+</script>
 {% endblock %}

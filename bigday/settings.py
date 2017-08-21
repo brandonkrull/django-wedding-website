@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'guests',
+    'lockdown',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -59,6 +60,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'lockdown.middleware.LockdownMiddleware',
 ]
 
 ROOT_URLCONF = 'bigday.urls'
@@ -137,6 +139,8 @@ STATICFILES_DIRS = (
     os.path.join('bigday', 'static'),
 )
 
+LOCKDOWN_PASSWORDS = config.get('wedding', 'entry')
+LOCKDOWN_FORM = 'bigday.forms.LockdownForm'
 
 try:
     from .localsettings import *

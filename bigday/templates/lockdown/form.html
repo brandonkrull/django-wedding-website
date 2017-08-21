@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block page_head %}
+<link href="{% static 'bigday/css/creative.css' %}" rel="stylesheet">
+{% endblock %}
+{% block page_content %}
+{% block main %}
+<header id="home">
+{% if form %}
+<div class="container-fluid" style="position: absolute; top: 50%; left: 40%; margin: 0 auto;">
+    <form action="" method="post">{% csrf_token %}
+    {{ form.password }}
+    <br><br>
+    <p><button class="btn btn-default" type="submit">Enter site</button></p>
+    </form>
+</div>
+{% endif %}
+</header> 
+{% endblock %}
+{% endblock %}
+{% block page_js %}{% endblock %}
