@@ -594,3 +594,7 @@ img.center {
 		top:94%;
 	}
 }
+
+.btn-default {
+    border-radius: 0;
+}

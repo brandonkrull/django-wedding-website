@@ -7,14 +7,20 @@
 {% block main %}
 <header id="home">
 {% if form %}
-<div class="container-fluid" style="position: absolute; top: 50%; left: 40%; margin: 0 auto;">
-    <form action="" method="post">{% csrf_token %}
-    {{ form.password }}
-    <br><br>
-    <p><button class="btn btn-default" type="submit">Let's get married!</button></p>
-    </form>
+<div class="container" style="width: 100%; position: fixed; top: 50%; margin: 0 auto;">
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+            <span style="color: #fff;">Enter password:</span>
+            <br>
+            <form action="" method="post">{% csrf_token %}
+            {{ form.password }}
+            <br><br>
+            <button class="btn btn-default" type="submit">Let's Go! <span class="glyphicon glyphicon-chevron-right"></span></button>
+            </form>
+        </div>
+    </div>
 </div>
 {% endif %}
-</header> 
+</header>
 {% endblock %}
 {% endblock %}
