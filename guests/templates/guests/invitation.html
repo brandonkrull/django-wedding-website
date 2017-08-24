@@ -27,12 +27,14 @@
                     {% with 'attending-'|add:guest.unique_id as attending_label %}
                     <label for="{{ attending_label }}" class="col-sm-6 col-sm-offset-3">{{ guest.name }}</label>
                     <br>
+                    <div>
                     <label class="radio-inline">
                         <input class="attending-radio" type="radio" name="{{ attending_label }}" value="yes" {% if guest.is_attending %}checked="checked"{% endif %} required> will attend
                     </label>
                     <label class="radio-inline">
                         <input class="attending-radio" type="radio" name="{{ attending_label }}" value="no" {% if guest.is_attending == False %}checked="checked"{% endif %} required> will not attend
                     </label>
+                    </div>
                     {% endwith %}
                 </div>
                 {% endfor %}
