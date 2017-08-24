@@ -4,7 +4,7 @@
     <link href="{% static 'bigday/css/invitation.css' %}" rel="stylesheet">
 {% endblock %}
 {% block page_content %}
-    <div class="container" style="top: 50%;">
+    <div class="container">
         <section class="col-sm-6 col-sm-offset-3 text-center" style="background-color: rgba(255,255,255,0.5);">
             <div id="invitation-details">
             <h2>Alysa and Brandon are getting married!</h2>
@@ -25,13 +25,18 @@
                 {% for guest in party.ordered_guests.all %}
                 <div class="form-group" data-is-child="{{ guest.is_child }}">
                     {% with 'attending-'|add:guest.unique_id as attending_label %}
+                    <div class="row">
                     <label for="{{ attending_label }}" class="col-sm-6 col-sm-offset-3">{{ guest.name }}</label>
+                    </div>
+
+                    <div class="row">
                     <label class="radio-inline">
                         <input class="attending-radio" type="radio" name="{{ attending_label }}" value="yes" {% if guest.is_attending %}checked="checked"{% endif %} required> will attend
                     </label>
                     <label class="radio-inline">
                         <input class="attending-radio" type="radio" name="{{ attending_label }}" value="no" {% if guest.is_attending == False %}checked="checked"{% endif %} required> will not attend
                     </label>
+                    </div>
                     {% endwith %}
                 </div>
                 {% endfor %}
