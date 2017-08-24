@@ -23,9 +23,9 @@
                 <div class="clearfix"></div>
                 {% csrf_token %}
                 {% for guest in party.ordered_guests.all %}
-                <label for="{{ attending_label }}" class="col-sm-6 col-sm-offset-3">{{ guest.name }}</label>
                 <div class="form-group" data-is-child="{{ guest.is_child }}">
                     {% with 'attending-'|add:guest.unique_id as attending_label %}
+                    <label for="{{ attending_label }}" class="col-sm-6 col-sm-offset-3">{{ guest.name }}</label>
                     <br>
                     <label class="radio-inline">
                         <input class="attending-radio" type="radio" name="{{ attending_label }}" value="yes" {% if guest.is_attending %}checked="checked"{% endif %} required> will attend
