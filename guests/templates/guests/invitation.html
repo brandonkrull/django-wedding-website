@@ -26,7 +26,7 @@
                 <div class="form-group" data-is-child="{{ guest.is_child }}">
                     {% with 'attending-'|add:guest.unique_id as attending_label %}
                     <label for="{{ attending_label }}" class="col-sm-3">{{ guest.name }}</label>
-                    <br>
+                    <br><br>
                     <label class="radio-inline">
                         <input class="attending-radio" type="radio" name="{{ attending_label }}" value="yes" {% if guest.is_attending %}checked="checked"{% endif %} required> will attend
                     </label>
@@ -36,8 +36,8 @@
                     {% endwith %}
                 </div>
                 {% endfor %}
-                <div class="form-group col-sm-10 col-sm-offset-1 text-center">
-                    <input type="text" name="comments" class="form-control" placeholder="Questions/comments/well wishes" >
+                <div class="form-group">
+                    <input type="text" name="comments" class="form-control col-sm-10 col-sm-offset-1" placeholder="Questions/comments/well wishes" >
                 </div>
                 <div class="form-group">
                     <div class="text-center">
