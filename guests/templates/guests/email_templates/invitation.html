@@ -1,13 +1,11 @@
 {% extends 'guests/email_templates/email_base.html' %}
 {% load staticfiles %}
-{% block header_image %}{% endblock %}
 {% block main_image %}
     {% with "invitation/images/"|add:main_image as main_static_url %}
     <img src="{% if email_mode %}cid:{{ main_image }}{% else %}{% static main_static_url %}{% endif %}"
          alt="alysa and brandon"
-         style="display: block; padding: 0; color: #666666;"
-         class="img-max" border="0"
-         height="600" width="400">
+         style="display: block; padding: 0; color: #666666; height: 600px; width: 400px; margin: 0 auto;"
+         class="img-max" border="0">
     {% endwith %}
 {% endblock %}
 {% block lead_copy %}
