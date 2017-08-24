@@ -18,35 +18,33 @@
                 Anaheim, California
             </p>
             </div>
-        </section>
-        <section class="col-sm-6 col-sm-offset-3 text-center" style="background-color: rgba(255,255,255,0.5);">
-        <form data-toggle="validator" id="invitation-details" class="form-horizontal" method="post">
-            <h2 id="rsvp-header" class="text-center">RSVP</h2>
-            <div class="clearfix"></div>
-            {% csrf_token %}
-            {% for guest in party.ordered_guests.all %}
-            <div class="form-group" data-is-child="{{ guest.is_child }}">
-                {% with 'attending-'|add:guest.unique_id as attending_label %}
-                <label for="{{ attending_label }}" class="col-sm-3 control-label">{{ guest.name }}</label>
-                <br>
-                <label class="radio-inline">
-                    <input class="attending-radio" type="radio" name="{{ attending_label }}" value="yes" {% if guest.is_attending %}checked="checked"{% endif %} required> will attend
-                </label>
-                <label class="radio-inline">
-                    <input class="attending-radio" type="radio" name="{{ attending_label }}" value="no" {% if guest.is_attending == False %}checked="checked"{% endif %} required> will not attend
-                </label>
-                {% endwith %}
-            </div>
-            {% endfor %}
-            <div class="form-group col-sm-12">
-                <input type="text" name="comments" class="form-control" placeholder="Questions/comments/well wishes" >
-            </div>
-            <div class="form-group">
-                <div class="text-center">
-                    <input type="submit" class="btn btn-primary" value="Submit Response" />
+            <form data-toggle="validator" id="invitation-details" class="form-horizontal" method="post">
+                <h2 id="rsvp-header" class="text-center">RSVP</h2>
+                <div class="clearfix"></div>
+                {% csrf_token %}
+                {% for guest in party.ordered_guests.all %}
+                <div class="form-group" data-is-child="{{ guest.is_child }}">
+                    {% with 'attending-'|add:guest.unique_id as attending_label %}
+                    <label for="{{ attending_label }}" class="col-sm-3 control-label">{{ guest.name }}</label>
+                    <br>
+                    <label class="radio-inline">
+                        <input class="attending-radio" type="radio" name="{{ attending_label }}" value="yes" {% if guest.is_attending %}checked="checked"{% endif %} required> will attend
+                    </label>
+                    <label class="radio-inline">
+                        <input class="attending-radio" type="radio" name="{{ attending_label }}" value="no" {% if guest.is_attending == False %}checked="checked"{% endif %} required> will not attend
+                    </label>
+                    {% endwith %}
                 </div>
-            </div>
-        </form>
+                {% endfor %}
+                <div class="form-group col-sm-12">
+                    <input type="text" name="comments" class="form-control" placeholder="Questions/comments/well wishes" >
+                </div>
+                <div class="form-group">
+                    <div class="text-center">
+                        <input type="submit" class="btn btn-primary" value="Submit Response" />
+                    </div>
+                </div>
+            </form>
         </section>
     </div>
 {% endblock %}
