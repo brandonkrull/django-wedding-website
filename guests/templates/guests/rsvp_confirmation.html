@@ -1,30 +1,35 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-{% block page_head %}
-    <link href="{% static 'bigday/css/rsvp-confirmation.css' %}" rel="stylesheet" xmlns="http://www.w3.org/1999/html">
-{% endblock %}
 {% block page_content %}
-    <div class="layer"></div>
-    <div class="container" id="main">
-        <h2>Hi {{ party.name }}! Thanks for your response!</h2>
-        {% if party.any_guests_attending %}
+    <div class="container"> 
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+            <h2>Hi {{ party.name }}! Thanks for your response!</h2>
+            {% if party.any_guests_attending %}
             <p>
                 We can't wait to celebrate with you in Niagara!
             </p>
             <p>
-                If you've got a minute, you can help us out by filling in a <a href="http://goo.gl/forms/AFszTcpPRW">super quick survey</a> that will help us plan for the most fun and smooth event possible.
-                If you have any other questions, don't hesitate to email us at <a href="mailto:hello@coryandro.com">hello@coryandro.com</a>.
+            
+                If you've got a minute, you can help us out by filling in a <a href="https://goo.gl/forms/FdV7ZC0XHmZsKg4w2">super quick survey</a>
+                that will help us plan for the most fun and smooth event possible.
+                If you have any other questions, don't hesitate to email us at <a href="mailto:hi@afbk.love">hi@afbk.love</a>.
             </p>
-        {% else %}
+            {% else %}
             <p>
-                We're sorry you won't be able to join us in Niagara.
+                We're sorry you won't be able to join us for our celebration.
             </p>
             <p>
-                We look forward to catching up with you some other time!
+                We hope we get to see you soon and catch up.
             </p>
-        {% endif %}
-        <p>
-            - Cory and Rowena
-        </p>
+            <p>
+                Please drop us a line at any time, we'd love to hear from you regardless.
+            </p>
+            {% endif %}
+            <p>
+            - Alysa and Brandon
+            </p>
+            </div>
+        </div>
     </div>
 {% endblock %}
