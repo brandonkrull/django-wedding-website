@@ -29,14 +29,6 @@
         $('.navbar-toggle:visible').click();
     });
 
-    // Fit Text Plugin for Main Header
-    $("h1").fitText(
-        1.2, {
-            minFontSize: '35px',
-            maxFontSize: '65px'
-        }
-    );
-
     // Offset for Main Navigation - this turns the nav bar white
     $('#mainNav').affix({
         offset: {
