@@ -32,7 +32,7 @@ class Party(models.Model):
     is_invited = models.BooleanField(default=False)
     rehearsal_dinner = models.BooleanField(default=False)
     is_attending = models.NullBooleanField(default=None)
-    comments = models.TextField(null=True, blank=True)
+    comments = models.TextField(null=True, blank=True, default=None)
 
     def __unicode__(self):
         return 'Party: {}'.format(self.name)

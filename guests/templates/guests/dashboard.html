@@ -75,12 +75,22 @@
                 {% endwith %}
             </div>
         </div>
-        <div class="col-lg-6">
-                <h1>Attending Guests Without Meals</h1>
-                {% with guest_list=guests_without_meals %}
-                    {% include "guests/partials/guest_list.html" %}
-                {% endwith %}
-            </div>
-        </div>
+	<div class="row">
+             <div class="col-lg-6">
+     	          <h1>Attending Guests Without Meals</h1>
+     	          {% with guest_list=guests_without_meals %}
+     	             {% include "guests/partials/guest_list.html" %}
+     	          {% endwith %}
+             </div>
+             <div class="col-lg-6">
+     	          <h1>Comments</h1>
+		  {% for party in parties %}
+		      <tr>
+		          <td>{{ party.name }}</td>
+		          <td>{{ party.comments }}</td>
+		      </tr>
+		  {% endfor %}
+             </div>
+	</div>
     </div>
 {% endblock %}
