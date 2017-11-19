@@ -6,27 +6,32 @@
 {% block page_content %}
     <div class="container">
         <section class="col-sm-6 col-sm-offset-3 text-center" style="background-color: rgba(255,255,255,0.5); padding-bottom: 15px;">
-            <div id="invitation-details">
-            <h2>Alysa and Brandon are getting married!</h2>
-            <p class="lead">
-                March 30th, 2018<br>
-                {% if party.type == 'ceremony' %}
-                Ceremony at 5:00pm<br>
-                {% endif %}
-                Dinner and Reception at 6:00pm<br>
+            <div id="invitation-details" style="padding-top: 50px;">
+	    <h4>Together with their families</h4> 
+            <h2>Alysa Mikie Fukunaga</h2> 
+	    and 
+ 	    <h2>Brandon Tyler Krull</h2>
+ 	    <br>
+            <p class="lead text-center" style="width: 75%; margin: auto;">
+		Request your presence at the ceremony and celebration of their marriage<br><br>
+                Friday, March 30th, 2018<br>
+                Ceremony at 5:00pm<br><br>
                 The Colony House<br>
-                Anaheim, California
+                Anaheim, California<br>
+                Reception to follow
             </p>
             </div>
-            <form data-toggle="validator" id="invitation-details" class="form-horizontal" method="post">
-                <h2 id="rsvp-header" class="text-center">RSVP</h2>
+   	    <br>
+   	    <br>
+	    <button id="rsvp" class="h2" style='padding: 15px; border: 0; border-radius: 4px;'>RSVP</button>
+            <form data-toggle="validator" id="rsvp-details" class="form-horizontal" method="post" style="display: none;">
                 <div class="clearfix"></div>
                 {% csrf_token %}
                 {% for guest in party.ordered_guests.all %}
                 <div class="form-group" data-is-child="{{ guest.is_child }}">
                     {% with 'attending-'|add:guest.unique_id as attending_label %}
                     <div class="row">
-                    <label for="{{ attending_label }}" class="col-sm-6 col-sm-offset-3">{{ guest.name }}</label>
+                    <label class="h3" for="{{ attending_label }}" class="col-sm-6 col-sm-offset-3">{{ guest.name }}</label>
                     </div>
 
                     <div class="row">
@@ -39,6 +44,18 @@
                     </div>
                     {% endwith %}
                 </div>
+            {% if not guest.is_child %}
+                <div class="form-group">
+                {% with 'meal-'|add:guest.unique_id as meal_label %}
+                    <label for="{{ meal_label }}" class="col-sm-3 control-label">... and will eat</label>
+                    {% for meal_id, meal_name in meals %}
+                    <label class="radio-inline">
+                        <input type="radio" name="{{ meal_label }}" id="{{ meal_label }}-yes" value="{{ meal_id }}" {% if guest.meal == meal_id %}checked="checked"{% endif %} {% if guest.is_attending == False %}disabled{% endif %} required> {{ meal_name }}
+                    </label>
+                    {% endfor %}
+                {% endwith %}
+		</div>
+		{% endif %}
                 {% endfor %}
                 <div class="form-group">
                     <input type="text" name="comments" class="form-control" style="width: 80%; margin: 0 auto;"placeholder="Questions/comments/well wishes" >
@@ -55,6 +72,9 @@
 {% block page_js %}
     <script src="{% static 'validator.js' %}"></script>
     <script>
+    $("#rsvp").click(function(){
+        $("#rsvp-details").toggle("slow");
+    });
     $(function () {
         // enable/disable meal choices based on attendance
         $("input.attending-radio").change(function (e) {
