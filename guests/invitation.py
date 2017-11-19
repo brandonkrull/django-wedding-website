@@ -50,7 +50,7 @@ def send_invitation_email(party, test_only=False, recipients=None):
     template_text = "You're invited to Alysa and Brandon's wedding. To view this invitation, visit {} in any browser.".format(
         reverse('invitation', args=[context['invitation_id']])
     )
-    subject = "You're invited"
+    subject = "You're invited!"
     # https://www.vlent.nl/weblog/2014/01/15/sending-emails-with-embedded-images-in-django/
     msg = EmailMultiAlternatives(subject, template_text,
                                  'Alysa and Brandon <hi@afbk.love>', recipients)
