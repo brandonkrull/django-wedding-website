@@ -1,5 +1,6 @@
 from email.mime.image import MIMEImage
 import os
+import time
 from datetime import datetime
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
@@ -50,13 +51,13 @@ def send_invitation_email(party, test_only=False, recipients=None):
     template_text = "You're invited to Alysa and Brandon's wedding. To view this invitation, visit {} in any browser.".format(
         reverse('invitation', args=[context['invitation_id']])
     )
-    subject = "You're invited!"
+    subject = "You're invited! SAMPLE NOT REAL"
     # https://www.vlent.nl/weblog/2014/01/15/sending-emails-with-embedded-images-in-django/
     msg = EmailMultiAlternatives(subject, template_text,
                                  'Alysa and Brandon <hi@afbk.love>', recipients)
     msg.attach_alternative(template_html, "text/html")
     msg.mixed_subtype = 'related'
-    for filename in (context['main_image'], ):
+    for filename in (context['header_filename'], context['main_image']):
         attachment_path = os.path.join(os.path.dirname(__file__), 'static', 'invitation', 'images', filename)
         with open(attachment_path, "rb") as image_file:
             msg_img = MIMEImage(image_file.read())
@@ -75,3 +76,5 @@ def send_all_invitations(test_only, mark_as_sent):
         if mark_as_sent:
             party.invitation_sent = datetime.now()
             party.save()
+	print 'sleeping between party sends'
+	time.sleep(30)

@@ -2,27 +2,30 @@
 {% load staticfiles %}
 {% block page_head %}
     <link href="{% static 'bigday/css/invitation.css' %}" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet'>
 {% endblock %}
 {% block page_content %}
     <div class="container">
-        <section class="col-sm-6 col-sm-offset-3 text-center" style="background-color: rgba(255,255,255,0.5); padding-bottom: 15px;">
-            <div id="invitation-details" style="padding-top: 50px;">
+        <section class="col-sm-8 col-sm-offset-2 text-center" style="background-color: rgba(255,255,255,0.5); padding-bottom: 15px;">
+            <div id="invitation-details" style="font-family: 'Julius Sans One', sans-serif; font-size: 20px; padding-top: 50px;">
 	    <h4>Together with their families</h4> 
-            <h2>Alysa Mikie Fukunaga</h2> 
+            <h2 style="font-family: tangerine; font-size: 60px;">Alysa Fukunaga</h2> 
 	    and 
- 	    <h2>Brandon Tyler Krull</h2>
- 	    <br>
+            <h2 style="font-family: tangerine; font-size: 60px;">Brandon Krull</h2> 
             <p class="lead text-center" style="width: 75%; margin: auto;">
-		Request your presence at the ceremony and celebration of their marriage<br><br>
-                Friday, March 30th, 2018<br>
-                Ceremony at 5:00pm<br><br>
-                The Colony House<br>
-                Anaheim, California<br>
-                Reception to follow
+		Invite you to celebrate their marriage<br><br>
+		Friday March 30th, 2018<br>
+                <!--Friday the Thirtieth of March <br>
+		Two Thousand and Eighteen<br>
+		at half past four o'clock in the evening<br>-->
+		promptly at four thirty in the afternoon<br>
+                <h3 style="font-weight: bolder;">The Colony House</h3>
+		401 N Anaheim Blvd<br>
+                Anaheim, California<br><br>
+		Dinner and Dancing to follow
             </p>
             </div>
-   	    <br>
-   	    <br>
 	    <button id="rsvp" class="h2" style='padding: 15px; border: 0; border-radius: 4px;'>RSVP</button>
             <form data-toggle="validator" id="rsvp-details" class="form-horizontal" method="post" style="display: none;">
                 <div class="clearfix"></div>
@@ -44,21 +47,9 @@
                     </div>
                     {% endwith %}
                 </div>
-            {% if not guest.is_child %}
-                <div class="form-group">
-                {% with 'meal-'|add:guest.unique_id as meal_label %}
-                    <label for="{{ meal_label }}" class="col-sm-3 control-label">... and will eat</label>
-                    {% for meal_id, meal_name in meals %}
-                    <label class="radio-inline">
-                        <input type="radio" name="{{ meal_label }}" id="{{ meal_label }}-yes" value="{{ meal_id }}" {% if guest.meal == meal_id %}checked="checked"{% endif %} {% if guest.is_attending == False %}disabled{% endif %} required> {{ meal_name }}
-                    </label>
-                    {% endfor %}
-                {% endwith %}
-		</div>
-		{% endif %}
                 {% endfor %}
                 <div class="form-group">
-                    <input type="text" name="comments" class="form-control" style="width: 80%; margin: 0 auto;"placeholder="Questions/comments/well wishes" >
+                    <input type="text" name="comments" class="form-control" style="width: 80%; margin: 0 auto;"placeholder="Please let us know of any dietary restrictions, or other questions or comments" >
                 </div>
                 <div class="form-group">
                     <div class="text-center">
