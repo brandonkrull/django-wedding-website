@@ -7,7 +7,7 @@
 {% endblock %}
 {% block page_content %}
     <div class="container">
-        <section class="col-sm-8 col-sm-offset-2 text-center" style="background-color: rgba(255,255,255,0.5); padding-bottom: 15px;">
+        <section class="col-sm-8 col-sm-offset-2 text-center" style="background-color: rgba(255,255,255,0.5); padding-bottom: 25px;">
             <div id="invitation-details" style="font-family: 'Julius Sans One', sans-serif; font-size: 20px; padding-top: 50px;">
 	    <h4>Together with their families</h4> 
             <h2 style="font-family: tangerine; font-size: 60px;">Alysa Fukunaga</h2> 
@@ -15,19 +15,23 @@
             <h2 style="font-family: tangerine; font-size: 60px;">Brandon Krull</h2> 
             <p class="lead text-center" style="width: 75%; margin: auto;">
 		Invite you to celebrate their marriage<br><br>
-		Friday March 30th, 2018<br>
-                <!--Friday the Thirtieth of March <br>
-		Two Thousand and Eighteen<br>
-		at half past four o'clock in the evening<br>-->
-		promptly at four thirty in the afternoon<br>
+		Friday, March 30th, 2018<br>
+		at four thirty in the afternoon<br>
                 <h3 style="font-weight: bolder;">The Colony House</h3>
 		401 N Anaheim Blvd<br>
                 Anaheim, California<br><br>
-		Dinner and Dancing to follow
+		Dinner and Festivities to follow <br><br>
+		Please RSVP below by February 25th<br><br>
+		<a class="h3" href="http://afbk.love">afbk.love</a>
             </p>
             </div>
-	    <button id="rsvp" class="h2" style='padding: 15px; border: 0; border-radius: 4px;'>RSVP</button>
-            <form data-toggle="validator" id="rsvp-details" class="form-horizontal" method="post" style="display: none;">
+	</section>
+    </div>
+    <br> <br>
+    <div class="container" style="border-top: 15px;">
+        <section class="col-sm-8 col-sm-offset-2 text-center" style="background-color: rgba(255,255,255,0.5); padding-bottom: 15px; border-bottom: 50px;">
+            <div id="invitation-details" style="font-family: 'Julius Sans One', sans-serif; font-size: 14px;">
+            <form data-toggle="validator" id="rsvp-details" class="form-horizontal" method="post"><!-- style="display: none;">-->
                 <div class="clearfix"></div>
                 {% csrf_token %}
                 {% for guest in party.ordered_guests.all %}
@@ -49,7 +53,7 @@
                 </div>
                 {% endfor %}
                 <div class="form-group">
-                    <input type="text" name="comments" class="form-control" style="width: 80%; margin: 0 auto;"placeholder="Please let us know of any dietary restrictions, or other questions or comments" >
+                    <input type="text" name="comments" class="form-control" style="width: 80%; margin: 0 auto;"placeholder="Dietary restrictions? Let us know!" >
                 </div>
                 <div class="form-group">
                     <div class="text-center">
@@ -62,39 +66,4 @@
 {% endblock %}
 {% block page_js %}
     <script src="{% static 'validator.js' %}"></script>
-    <script>
-    $("#rsvp").click(function(){
-        $("#rsvp-details").toggle("slow");
-    });
-    $(function () {
-        // enable/disable meal choices based on attendance
-        $("input.attending-radio").change(function (e) {
-            var target = $(e.target);
-            if (target.closest('.form-group').data('is-child') === "True") {
-                // don't attempt to update meals for children, who don't have them.
-                return;
-            }
-            var value = target.attr('value');
-            var mealButtonContainer = target.closest('.form-group').next('.form-group');
-            var mealButtons = mealButtonContainer.find('[type=radio]');
-            if (value === 'yes') {
-                mealButtonContainer.removeClass('text-muted');
-                mealButtons.each(function (index, button) {
-                    button.disabled = false;
-                    button.required = true;
-                });
-            } else if (value === "no") {
-                mealButtonContainer.addClass('text-muted');
-                mealButtons.each(function (index, button) {
-                    button.checked = false;
-                    button.disabled = true;
-                    button.required = false;
-                });
-            }
-            // reload validation
-            $(document.forms[0]).validator('destroy');
-            $(document.forms[0]).validator();
-        });
-    });
-    </script>
 {% endblock %}

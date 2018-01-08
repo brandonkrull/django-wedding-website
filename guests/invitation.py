@@ -1,6 +1,8 @@
 from email.mime.image import MIMEImage
 import os
 import time
+import tqdm
+import pickle
 from datetime import datetime
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
@@ -51,7 +53,7 @@ def send_invitation_email(party, test_only=False, recipients=None):
     template_text = "You're invited to Alysa and Brandon's wedding. To view this invitation, visit {} in any browser.".format(
         reverse('invitation', args=[context['invitation_id']])
     )
-    subject = "You're invited! SAMPLE NOT REAL"
+    subject = "You're invited!"
     # https://www.vlent.nl/weblog/2014/01/15/sending-emails-with-embedded-images-in-django/
     msg = EmailMultiAlternatives(subject, template_text,
                                  'Alysa and Brandon <hi@afbk.love>', recipients)
@@ -70,11 +72,18 @@ def send_invitation_email(party, test_only=False, recipients=None):
 
 
 def send_all_invitations(test_only, mark_as_sent):
-    to_send_to = Party.in_default_order().filter(is_invited=True, invitation_sent=None).exclude(is_attending=False)
-    for party in to_send_to:
-        send_invitation_email(party, test_only=test_only)
-        if mark_as_sent:
-            party.invitation_sent = datetime.now()
-            party.save()
-	print 'sleeping between party sends'
-	time.sleep(30)
+    to_send_to = Party.in_default_order().filter(is_invited=True)
+    sent_invites = []
+    k = 0
+    for party in tqdm.tqdm(to_send_to):
+	if k > 108:
+            send_invitation_email(party, test_only=test_only)
+            if mark_as_sent:
+                party.invitation_sent = datetime.now()
+                party.save()
+            sent_invites.append(party.name)
+	    time.sleep(10)
+	k += 1
+
+    with open('sent_invites.pkl', 'wb') as pkl:
+    	pickle.dump(sent_invites, pkl)

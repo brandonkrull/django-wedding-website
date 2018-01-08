@@ -38,33 +38,28 @@
 	<div class="row">
              <div class="col-lg-6">
      	          <h1>Comments</h1>
+		  <ul>
 		  {% for party in parties %}
-		      <tr>
-		          <td>{{ party.name }}</td>
-		      </tr>
-		      <br>
-		      <tr>
-		          <td>{{ party.comments }}</td>
-		      </tr>
+		     <li>{{ party.name }}<br>{{ party.comments }} </li>
 		  {% endfor %}
+	  	  </ul>
              </div>
 	</div>
 	<div class="row">
 		<div class="col-lg-6">
 		<h1>Guests Attending</h1>
+		<ul>
 		  {% for guest in guest_list %}
-		      <tr>
-		          <td>{{ guest.first_name }} {{ guest.last_name }}</td>
-		      </tr>
+		  <li>{{ guest.first_name }} {{ guest.last_name }}</li>
 		  {% endfor %}
 		</div>
 		<div class="col-lg-6">
 		<h1>Guests Not Attending</h1>
+		<ul>
 		  {% for guest in not_guest_list %}
-		      <tr>
-		          <td>{{ guest.first_name }} {{ guest.last_name }}</td>
-		      </tr>
+		  <li>{{ guest.first_name }} {{ guest.last_name }}</li>
 		  {% endfor %}
+		</ul>
 		</div>
     </div>
 {% endblock %}
