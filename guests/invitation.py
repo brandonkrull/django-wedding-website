@@ -13,6 +13,13 @@ from guests.models import Party, MEALS
 
 INVITATION_TEMPLATE = 'guests/email_templates/invitation.html'
 
+'''
+in the case of needing to add new parties and send invites to them, 
+use the django admin web interface to create party and add guests, 
+making sure check the 'is invited' box and change their party type
+to 'dimagi'. the send all invitations function filters out everybody except 
+those parties, making it easy to send to only a specific set of parties.
+'''
 
 def guess_party_by_invite_id_or_404(invite_id):
     try:
@@ -47,6 +54,7 @@ def send_invitation_email(party, test_only=False, recipients=None):
         print '===== WARNING: no valid email addresses found for {} ====='.format(party)
         return
 
+    print party.guest_emails
     context = get_invitation_context(party)
     context['email_mode'] = True
     template_html = render_to_string(INVITATION_TEMPLATE, context=context)
@@ -72,18 +80,17 @@ def send_invitation_email(party, test_only=False, recipients=None):
 
 
 def send_all_invitations(test_only, mark_as_sent):
-    to_send_to = Party.in_default_order().filter(is_invited=True)
+    to_send_to = Party.in_default_order().filter(type='dimagi')
     sent_invites = []
     k = 0
     for party in tqdm.tqdm(to_send_to):
-	if k > 108:
-            send_invitation_email(party, test_only=test_only)
-            if mark_as_sent:
-                party.invitation_sent = datetime.now()
-                party.save()
-            sent_invites.append(party.name)
-	    time.sleep(10)
-	k += 1
+	print party.name
+        send_invitation_email(party, test_only=test_only)
+        if mark_as_sent:
+            party.invitation_sent = datetime.now()
+            party.save()
+        sent_invites.append(party.name)
+        time.sleep(10)
 
     with open('sent_invites.pkl', 'wb') as pkl:
     	pickle.dump(sent_invites, pkl)
