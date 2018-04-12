@@ -35,8 +35,8 @@ def dashboard(request):
     ).order_by('category', 'name')
     parties_with_unopen_invites = parties_with_pending_invites.filter(invitation_opened=None)
     parties_with_open_unresponded_invites = parties_with_pending_invites.exclude(invitation_opened=None)
-    attending_guests = Guest.objects.filter(is_attending=True)
-    not_attending_guests = Guest.objects.filter(is_attending=False)
+    attending_guests = Guest.objects.filter(is_attending=True).order_by('-last_name')
+    not_attending_guests = Guest.objects.filter(is_attending=False).order_by('last_name')
     category_breakdown = attending_guests.values('party__category').annotate(count=Count('*'))
 
     return render(request, 'guests/dashboard.html', context={
